@@ -1,0 +1,11 @@
+$('#table_bm').append(`
+    <tr>
+        <td><%= @bookmark.name %></td>
+        <td><%= @bookmark.url %></td>
+        <td><%= @bookmark.type.name %></td>
+        <td><%= @bookmark.category.name %></td>
+        <td><%= link_to 'Show', @bookmark %></td>
+        <td><%= link_to 'Edit', edit_bookmark_path(@bookmark) %></td>
+        <td><%= link_to 'Destroy', @bookmark, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    `)

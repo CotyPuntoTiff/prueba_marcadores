@@ -1,0 +1,26 @@
+<%= form_with(model: bookmark, remote: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+   <div class="field">
+    <%= form.label :type_id %>
+    <%= form.select :type_id, Type.all.collect {|t| [t.name, t.id]}, {} ,id: :bookmark_type_id, include_blank:false %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.select :category_id, Category.all.collect {|c| [c.name, c.id]}, {} ,id: :bookmark_category_id, include_blank:false %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit  onclick: "return confirm('are you sure')"%>
+  </div>
+<% end %>
